@@ -983,9 +983,7 @@ rag_tool = Tool(
 
 # Agent with RAG + other tools
 tools = [rag_tool, search_tool, calculator_tool]
-agent = initialize_agent(tools, llm, agent)
-
-=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
+agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
 
 # Now agent can use internal knowledge base AND external tools
 response = agent.run(
@@ -3097,8 +3095,7 @@ services:
   frontend:
     image: nginx:alpine
     ports:
-      - "80:
-80"
+      - "80:80"
     volumes:
       - ./index.html:/usr/share/nginx/html/index.html
 ```
